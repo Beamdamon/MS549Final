@@ -68,7 +68,7 @@ class HT
 
     public void displayKey() 
     {
-        Console.WriteLine("Movie List by Key in Numerical Order: ");
+        Console.WriteLine("Movie List by Key: ");
         string[] sortedArray = new string[MovieList.Count];
         int count = 0;
 
@@ -108,11 +108,11 @@ class HT
         HT ht = new HT();
         int num = MovieList.Count;
 
-
-        int input = 0;
         string movie = "";
         string key = "";
-        while (input != 7)
+        int selection = 0;
+
+        while (selection != 7)
         {
             Console.WriteLine();
             Console.WriteLine("Main Menu");
@@ -123,9 +123,10 @@ class HT
             Console.WriteLine("Press 5 to display the movie list by title in Alphabetical order.");
             Console.WriteLine("Press 6 to pick a random movie.");
 
-            input = int.Parse(Console.ReadLine());
+            int.TryParse(Console.ReadLine(), out selection);
+           
 
-            switch (input) 
+            switch (selection) 
             {
                 case 1: 
                     Console.WriteLine();
