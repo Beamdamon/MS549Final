@@ -4,8 +4,10 @@ using System.Runtime.CompilerServices;
 using System.Transactions;
 
 class HT
-{
+{   // Creates the Hashtable "Movie List"
     static Hashtable MovieList = new Hashtable();
+    
+    //Adds a movie into the HT with a random key (1-1000)
     public void addMovie(string key, string movie)
     {
         Random random= new Random();
@@ -16,6 +18,7 @@ class HT
         Console.WriteLine("The movie was added to your list.");
     }
 
+    //Removes a movie from the list by it's key. If the key does not exist, states it.
     public void removeMovie(string key)
     {
         key = Console.ReadLine();
@@ -30,6 +33,7 @@ class HT
         }
     }
 
+    //Finds a movie by title. If it does not exist, states it.
     public void findMovie(string input)
     {
         bool found = false;
@@ -49,6 +53,7 @@ class HT
         }
     }
 
+    //Picks a random movie from the sorted Array list.
     public void pickRandomMovie()
     {
         string[] sortedArray = new string[MovieList.Count];
@@ -66,6 +71,7 @@ class HT
         Console.WriteLine(sortedArray[randomMovie]);
     }
 
+    //Displays the movies by both their key and their title.
     public void displayKey() 
     {
         Console.WriteLine("Movie List by Key: ");
@@ -84,6 +90,7 @@ class HT
         }
     }
 
+    //Displays the movies in alphabetical order by filling an array with movies and sorting it.
     public void displayABC()
     {
         string[] sortedArray = new string[MovieList.Count];
@@ -112,7 +119,9 @@ class HT
         string key = "";
         int selection = 0;
 
-        while (selection != 7)
+        //Main Menu and user selection. 1 Adds movie, 2 deletes, 3 Finds, 4 Displays by key, 5 displays by alphabetical, 6 is random movie, 10 closes
+
+        while (selection != 10)
         {
             Console.WriteLine();
             Console.WriteLine("Main Menu");
@@ -122,13 +131,14 @@ class HT
             Console.WriteLine("Press 4 to display the movie list by Key");
             Console.WriteLine("Press 5 to display the movie list by title in Alphabetical order.");
             Console.WriteLine("Press 6 to pick a random movie.");
+            Console.WriteLine("Press 10 to close the program.");
 
             int.TryParse(Console.ReadLine(), out selection);
            
 
             switch (selection) 
             {
-                case 1: 
+                case 1:
                     Console.WriteLine();
                     Console.WriteLine("What movie would you like to add?");
                     ht.addMovie(key, movie);
